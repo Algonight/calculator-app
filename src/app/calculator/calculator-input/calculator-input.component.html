@@ -1,1 +1,17 @@
-<p>calculator-input works!</p>
+<form [formGroup]="calculatorForm" (submit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>First number</mat-label>
+    <input matInput type="number" formControlName="number1" />
+  </mat-form-field>
+
+  <span>x</span>
+
+  <mat-form-field>
+    <mat-label>Second number</mat-label>
+    <input matInput type="number" formControlName="number2" />
+  </mat-form-field>
+
+  <button class="submit-button" mat-raised-button color="primary" type="submit" [disabled]="calculatorForm.invalid">
+    Compute
+  </button>
+</form>

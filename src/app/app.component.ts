@@ -11,4 +11,10 @@ import { HeaderComponent } from './header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {}
+export class AppComponent {
+  result?: number;
+
+  onCompute(result: number) {
+    this.result = result;
+  }
+}
