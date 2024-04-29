@@ -1,1 +1,7 @@
-<p>calculator-result works!</p>
+<div *ngIf="result !== undefined; else waitingForInput">
+  <p><span>Result:</span> {{ result }}</p>
+  <p><span>Square root result:</span> {{ resultSquareRoot }}</p>
+</div>
+<ng-template #waitingForInput>
+  <p>Waiting inputs from user</p>
+</ng-template>

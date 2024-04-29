@@ -2,7 +2,7 @@
 <div class="container">
   <div class="calculator">
     <app-calculator-input (compute)="onCompute($event)" />
-    <app-calculator-result />
+    <app-calculator-result [result]="result" />
   </div>
   <div class="details">
     <app-conditional-details />
