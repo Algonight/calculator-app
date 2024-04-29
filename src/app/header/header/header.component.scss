@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(248, 162, 217);
+  color: white;
+
+  img {
+    height: 80px;
+    max-width: 150px;
+  }
+}
