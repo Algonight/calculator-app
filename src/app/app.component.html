@@ -1,7 +1,7 @@
 <app-header />
 <div class="container">
   <div class="calculator">
-    <app-calculator-input (compute)="onCompute($event)" />
+    <app-calculator-input (calculated)="onCompute($event)" />
     <app-calculator-result [result]="result" />
   </div>
   <div class="details">

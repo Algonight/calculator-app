@@ -1,7 +1,9 @@
-<div *ngIf="result !== undefined; else waitingForInput">
-  <p><span>Result:</span> {{ result }}</p>
-  <p><span>Square root result:</span> {{ resultSquareRoot }}</p>
+<div *ngIf="result() !== undefined; else waitingForInput">
+  <p><span>Result:</span> {{ result() }}</p>
+  <p><span>Square root result:</span> {{ resultSquareRoot() }}</p>
 </div>
 <ng-template #waitingForInput>
   <p>Waiting inputs from user</p>
 </ng-template>
+
+<button mat-flat-button color="accent" (click)="multiplyByTwo()">Multiple by two: {{ multiplied() }}</button>

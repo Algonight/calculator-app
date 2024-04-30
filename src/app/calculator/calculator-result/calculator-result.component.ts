@@ -1,24 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, computed, effect, input, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-calculator-result',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatButtonModule],
   templateUrl: './calculator-result.component.html',
   styleUrl: './calculator-result.component.scss',
 })
 export class CalculatorResultComponent {
-  private _result?: number;
-  resultSquareRoot?: number;
+  result = input.required<number | undefined>();
+  resultSquareRoot = computed(() => (this.result() !== undefined ? Math.sqrt(this.result() as number) : undefined));
+  multiplied = signal(1);
 
-  get result(): number | undefined {
-    return this._result;
+  constructor() {
+    effect(() => {
+      console.log('Result changed to', this.result());
+      console.log('Square root of result is', this.resultSquareRoot());
+      console.log('Result multiplied by two is', this.multiplied());
+    });
   }
 
-  @Input() set result(value: number | undefined) {
-    if (value === undefined) return;
-    this._result = value;
-    this.resultSquareRoot = Math.sqrt(value);
+  multiplyByTwo() {
+    this.multiplied.update((prev) => prev * 2);
   }
 }
