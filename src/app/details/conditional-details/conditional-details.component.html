@@ -1,1 +1,10 @@
-<p>conditional-details works!</p>
+<div [ngSwitch]="result">
+  <div *ngSwitchCase="0">Tête à toto</div>
+  <div *ngSwitchCase="100">The 100</div>
+  <div *ngSwitchDefault>Maybe you'll find some easter egg :)</div>
+</div>
+
+<p>Merci pour la présentation</p>
+<ul>
+  <li *ngFor="let author of authors">{{ author }}</li>
+</ul>

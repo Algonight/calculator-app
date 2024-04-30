@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-conditional-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './conditional-details.component.html',
   styleUrl: './conditional-details.component.scss',
 })
-export class ConditionalDetailsComponent {}
+export class ConditionalDetailsComponent {
+  @Input() result?: number;
+
+  authors = ['Benjamin', 'Antonin'];
+}
