@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './calculator-input.component.scss',
 })
 export class CalculatorInputComponent {
-  @Output() compute = new EventEmitter<number>();
+  @Output() calculated = new EventEmitter<number>();
 
   calculatorForm = new FormGroup({
     number1: new FormControl<number | null>(null, Validators.required),
@@ -24,7 +24,7 @@ export class CalculatorInputComponent {
     if (this.calculatorForm.valid) {
       const number1 = this.calculatorForm.get('number1')?.value as number;
       const number2 = this.calculatorForm.get('number2')?.value as number;
-      this.compute.emit(number1 * number2);
+      this.calculated.emit(number1 * number2);
     }
   }
 }
